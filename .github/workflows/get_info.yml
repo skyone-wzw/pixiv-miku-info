@@ -22,8 +22,8 @@ jobs:
 
     - name: "Run my spider"
       env:
-        P_START: 1
-        P_END: 70
+        P_START: 71
+        P_END: 140
       run: |
         python index.py
 
