@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  spider:
+  spider-1:
     runs-on: ubuntu-latest
     steps:
     - name: checkout
@@ -32,3 +32,32 @@ jobs:
       with:
         name: info
         path: output
+
+  spider-2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: 'Set up Python'
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+
+      - name: "install libs"
+        run: |
+          pip install requests
+          pip install lxml
+
+      - name: "Run my spider"
+        env:
+          P_START: 71
+          P_END: 140
+        run: |
+          python index.py
+
+      - name: "Upload Info"
+        uses: actions/upload-artifact@master
+        with:
+          name: info
+          path: output
