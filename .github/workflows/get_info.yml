@@ -20,12 +20,10 @@ jobs:
         pip install requests
         pip install lxml
 
-    - name: "Set env"
-      run: |
-        P_START=1
-        P_END=70
-
-    - name: "install libs"
+    - name: "Run my spider"
+      env:
+        P_START: 1
+        P_END: 70
       run: |
         python index.py
 
