@@ -53,7 +53,7 @@ while len(task) > 0:
         time.sleep(10)
         image["fail"] += 1
         if image["fail"] <= 5:
-            task.insert(image, 0)
+            task.insert(0, image)
         else:
             print("[error]\t can't load %d\t%s" % (image["index"], image["id"]))
             fail.append(image)
